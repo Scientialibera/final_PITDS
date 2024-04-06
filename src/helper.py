@@ -956,11 +956,10 @@ def process_and_cluster_weather_data(output_folder_ds1_csv_clean_imputed, output
     stations_total_average_df_dbscan = apply_dbscan_clustering(stations_total_average_df)
     save_dataset(stations_total_average_df_dbscan, output_folder_clustering_df_labeled, 'stations_total_average_dbscan.csv')
 
-    # Plotting (this depends on your plotting function implementations)
-    # plot_clusters_on_map(stations_total_average_df_labeled)
-    # plot_cluster_distribution_on_map(stations_monthly_average_df_labeled)
+    # Plotting
+    plot_clusters_on_map(stations_total_average_df_labeled)
+    plot_cluster_distribution_on_map(stations_monthly_average_df_labeled)
 
-    # Optional: Stats or analysis results
     cluster_stats = stats_by_group(stations_total_average_df_labeled[["cluster", "tmax (degC)", "sun (hours)"]], 'cluster')
 
     return stations_total_average_df, stations_monthly_average_df, stations_total_average_df_labeled, stations_monthly_average_df_labeled,stations_monthly_average_df_labeled_manual, stations_total_average_df_dbscan, cluster_stats
