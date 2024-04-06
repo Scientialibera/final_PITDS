@@ -733,6 +733,17 @@ def classify_latitude_groups(df, testing_fraction, target_column):   #Dataset 1
     print(f"Best Model Accuracy: {accuracy}\n----------------------------------------")
     print(f"Best Model Parameters: {randomized_cv.best_params_}\n----------------------------------------")
 
+    # Print the relative feature importance
+    feature_importances = pd.DataFrame(best_model.feature_importances_,
+                                       index = X_train.columns,
+                                       columns=['importance']).sort_values('importance', ascending=False)
+    print("\nFeature Importances:\n", feature_importances)
+
+    # Optionally, plot the feature importances
+    feature_importances.plot(kind='bar', title='Feature Importance')
+    plt.ylabel('Relative Importance')
+    plt.show()
+
     return test_results_df
 
 def haversine(lat1, lon1, lat2, lon2):   #Dataset 2
