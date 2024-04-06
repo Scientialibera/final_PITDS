@@ -19,4 +19,5 @@ class Config:
         self.climate_columns = os.getenv("CLIMATE_COLUMNS").split(',') # Columns to use for for EDA in Part 3 (and to set as independent variables)
         self.happiness_columns = os.getenv("HAPPINESS_COLUMNS").split(',') # Happiness Cols to use for EDA in Part 3
         self.dependent_var = os.getenv("DEPENDENT_VAR") # Dependent variable for Part 3 (We decided to use Average Happoiness Score, but can be easily changed)
-        self.reference_csv_census_location = os.getenv("REFERENCE_CSV_CENSUS_LOCATION") # Location of the reference csv for the census data
+        self.reference_csv_census_location = os.getenv("REFERENCE_CSV_CENSUS_LOCATION") # Location of the reference csv for the census
+        self.optimal_num_clusters = int(os.getenv("OPTIMAL_NUM_CLUSTERS")) # Optimal number of clusters for KMeans
